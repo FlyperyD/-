@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Штучний інтелект — окремий вид комп’ютерних технологій</title>
+<meta name="description" content="Проєкт учнів 10-Б класу Ліцею №10: чим штучний інтелект відрізняється від класичних програм і чому його вважають окремим видом комп’ютерних технологій.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f8;--surface:#fff;--ink:#101a3a;--muted:#55607e;--line:#d3dbea;--accent:#3340ff;--accent-ink:#fff;--warm:#ff7a59;--soft:#e2e7ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1226;--surface:#141c38;--ink:#eaf0ff;--muted:#a3aed0;--line:#27325a;--accent:#8a94ff;--accent-ink:#0c1226;--warm:#ff9275;--soft:#1d2750}}
+:root[data-theme="dark"]{--bg:#0c1226;--surface:#141c38;--ink:#eaf0ff;--muted:#a3aed0;--line:#27325a;--accent:#8a94ff;--accent-ink:#0c1226;--warm:#ff9275;--soft:#1d2750}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Onest,system-ui,sans-serif}
+h1,h2,h3{font-family:Unbounded,Onest,sans-serif;line-height:1.15;margin:0 0 .6em}
+a{color:var(--accent)}:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:18px;min-height:60px}
+.logo{font:700 15px Unbounded,sans-serif;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;gap:4px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:15px}nav a:hover{background:var(--soft);color:var(--ink)}
+#theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit}
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,54px);letter-spacing:-.02em}
+.lead{font-size:20px;color:var(--muted);max-width:34em}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.net{width:100%;height:auto}.net line{stroke:var(--line);stroke-width:2}.net .n{fill:var(--surface);stroke:var(--accent);stroke-width:3}
+.net .p{stroke:var(--warm);stroke-width:3;stroke-dasharray:6 120;animation:flow 3.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-126}}
+@media (prefers-reduced-motion:reduce){.net .p{animation:none}html{scroll-behavior:auto}}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(24px,3.4vw,34px)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.box h3{font-size:17px}.box p{margin:0;color:var(--muted)}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:500;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.flow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;margin:18px 0 0}
+.flow div{flex:1 1 150px;background:var(--soft);border-radius:10px;padding:14px}
+.flow b{display:block;margin-bottom:4px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px}th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Unbounded,sans-serif;font-size:14px}tr:last-child td{border-bottom:0}td:first-child{font-weight:700}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--accent)}
+.tl li{position:relative;margin-bottom:22px;max-width:46em}
+.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--warm)}
+.tl strong{font-family:Unbounded,sans-serif;font-size:16px;display:block}
+.quote{font:500 clamp(20px,3vw,28px)/1.4 Unbounded,sans-serif;max-width:30em}
+.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.ava{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 20px Unbounded,sans-serif;margin-bottom:14px}
+ol.src{color:var(--muted);padding-left:20px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:15px}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:44px}nav{display:none}}
+
+.cv{width:100%;height:auto;display:block;border-radius:12px;background:var(--bg);border:1px solid var(--line);cursor:crosshair;touch-action:none}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 0;align-items:center}
+.ctl button,.opt{padding:9px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;cursor:pointer}
+.ctl button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.ctl .go{background:var(--warm);color:#1a0d08;border-color:var(--warm);font-weight:700}
+.stat{color:var(--muted);margin-left:auto;font-size:15px}
+.opt{display:block;width:100%;text-align:left;margin:8px 0}.opt:hover{background:var(--soft)}
+.opt.ok{background:#1f9d55;color:#fff;border-color:#1f9d55}.opt.bad{background:#d64545;color:#fff;border-color:#d64545}
+.qn{color:var(--muted);font-size:15px;margin-bottom:6px}.fb{margin:12px 0;color:var(--muted)}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.gal figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gal svg,.gal img{width:100%;height:210px;object-fit:cover;display:block;background:var(--soft)}
+.gal img{object-position:top}.gal figcaption a{display:block;margin-top:6px;font-size:13px}.gal figcaption{padding:14px 18px;color:var(--muted);font-size:15px}
+.gal svg .s{stroke:var(--accent);stroke-width:4;fill:none;stroke-linecap:round;stroke-linejoin:round}.gal svg .f{fill:var(--accent)}.gal svg .w{fill:var(--warm)}
+@media (max-width:820px){.stat{margin-left:0;width:100%}}
+
+.l2{display:flex;gap:28px;flex-wrap:wrap;align-items:flex-start}
+.l2>div{flex:1 1 280px}
+#gc{width:200px;max-width:100%;aspect-ratio:5/7;border-radius:10px;border:1px solid var(--line);touch-action:none;cursor:pointer;display:block;background:var(--bg)}
+.br{display:flex;align-items:center;gap:8px;font-size:14px;margin:3px 0}.br span{width:14px;font-weight:700}
+.br i{flex:1;height:12px;background:var(--soft);border-radius:6px;overflow:hidden}.br b{display:block;height:100%;width:0;background:var(--line);border-radius:6px}.br b.top{background:var(--accent)}.br em{width:38px;font-style:normal;color:var(--muted);text-align:right}
+#lc{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);background:var(--bg);margin-top:10px;display:block}
+#dg{padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top">ШІ · 10-Б</a>
+<nav aria-label="Розділи"><a href="#idea">Ідея</a><a href="#diff">Відмінності</a><a href="#history">Історія</a><a href="#kinds">Види</a><a href="#nn">Нейромережа</a><a href="#lab">Точки</a><a href="#quiz">Тест</a><a href="#gallery">Галерея</a><a href="#use">Застосування</a><a href="#ethics">Ризики</a><a href="#authors">Автори</a></nav>
+<button id="theme" aria-label="Змінити тему">◐ Тема</button>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<h1>Штучний інтелект — окремий вид комп’ютерних технологій</h1>
+<p class="lead">Звичайна програма виконує інструкції, написані людиною. Система ШІ сама знаходить закономірності в даних. Саме тому її вважають окремою гілкою інформатики.</p>
+<div class="btns"><a class="btn" href="#diff">Чим ШІ відрізняється</a><a class="btn alt" href="#lab">Навчити модель</a></div>
+</div>
+<svg class="net" viewBox="0 0 360 300" role="img" aria-label="Схема нейронної мережі з трьох шарів">
+<g id="l"></g><g id="nd"></g>
+</svg>
+</div>
+
+<section id="idea"><div class="wrap">
+<h2>Головна ідея проєкту</h2>
+<p class="quote">Програму пишуть, а модель ШІ — навчають.</p>
+<p style="max-width:44em;color:var(--muted)">Ми розглядаємо ШІ не як окрему програму, а як окремий підхід до обчислень: замість готових правил — приклади, замість точної інструкції — модель, яка узагальнює побачене. Нижче можна порівняти обидва підходи.</p>
+<div class="demo" style="margin-top:24px">
+<div class="tabs" role="tablist" aria-label="Підхід">
+<button role="tab" aria-selected="true" aria-controls="pn" id="t1">Класична програма</button>
+<button role="tab" aria-selected="false" aria-controls="pn" id="t2">Модель ШІ</button>
+</div>
+<div id="pn" role="tabpanel" aria-live="polite"></div>
+</div>
+</div></section>
+
+<section id="diff"><div class="wrap">
+<h2>Чому ШІ — окремий вид технологій</h2>
+<div class="tw"><table>
+<thead><tr><th>Ознака</th><th>Класична програма</th><th>Система ШІ</th></tr></thead>
+<tbody>
+<tr><td>Джерело логіки</td><td>Правила пише програміст</td><td>Закономірності знаходяться в даних</td></tr>
+<tr><td>Результат</td><td>Завжди однаковий для однакового входу</td><td>Ймовірнісний, може відрізнятися</td></tr>
+<tr><td>Нові ситуації</td><td>Потрібно дописати код</td><td>Узагальнює на схожі випадки</td></tr>
+<tr><td>Удосконалення</td><td>Нова версія програми</td><td>Донавчання на нових даних</td></tr>
+<tr><td>Помилки</td><td>Можна знайти рядок з багом</td><td>Складно пояснити причину</td></tr>
+<tr><td>Ресурси</td><td>Звичайний комп’ютер</td><td>Великі дані та потужні процесори (GPU)</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="history"><div class="wrap">
+<h2>Історія розвитку</h2>
+<ol class="tl">
+<li><strong>1950</strong>Алан Тюрінг у статті «Computing Machinery and Intelligence» ставить питання, чи можуть машини мислити.</li>
+<li><strong>1956</strong>На Дартмутській літній конференції закріплюється термін «штучний інтелект» (його запропонував Джон Маккарті).</li>
+<li><strong>1997</strong>Комп’ютер Deep Blue вигравав матч у шахового чемпіона Гаррі Каспарова.</li>
+<li><strong>2012</strong>Згорткова мережа AlexNet різко покращує розпізнавання зображень, починається ера глибокого навчання.</li>
+<li><strong>2016</strong>Програма AlphaGo перемагає Лі Седоля в го.</li>
+<li><strong>2017</strong>З’являється архітектура Transformer, на якій побудовано сучасні мовні моделі.</li>
+<li><strong>2022</strong>ChatGPT робить генеративний ШІ доступним мільйонам людей.</li>
+</ol>
+</div></section>
+
+<section id="kinds"><div class="wrap">
+<h2>Основні напрями ШІ</h2>
+<div class="cols">
+<div class="box"><h3>Машинне навчання</h3><p>Алгоритми, які вчаться на прикладах: прогноз цін, рекомендації, фільтр спаму.</p></div>
+<div class="box"><h3>Нейронні мережі</h3><p>Багатошарові моделі, натхненні будовою мозку. Основа глибокого навчання.</p></div>
+<div class="box"><h3>Комп’ютерний зір</h3><p>Розпізнавання облич, об’єктів, медичних знімків, дорожніх знаків.</p></div>
+<div class="box"><h3>Обробка мови</h3><p>Переклад, голосові помічники, чат-боти, аналіз текстів.</p></div>
+<div class="box"><h3>Генеративний ШІ</h3><p>Створює нові тексти, зображення, музику та код за запитом користувача.</p></div>
+<div class="box"><h3>Робототехніка</h3><p>Автономні машини, які сприймають середовище і ухвалюють рішення.</p></div>
+</div>
+</div></section>
+
+<section id="use"><div class="wrap">
+<h2>Де ШІ працює вже сьогодні</h2>
+<div class="cols">
+<div class="box"><h3>Освіта</h3><p>Персональні вправи, перевірка мови, пояснення складних тем.</p></div>
+<div class="box"><h3>Медицина</h3><p>Допомога лікарям в аналізі знімків та пошуку ліків.</p></div>
+<div class="box"><h3>Транспорт</h3><p>Навігація, прогноз заторів, системи допомоги водієві.</p></div>
+<div class="box"><h3>Творчість</h3><p>Ілюстрації, музика, дизайн, ідеї для текстів.</p></div>
+</div>
+</div></section>
+
+<section id="ethics"><div class="wrap">
+<h2>Ризики та відповідальне використання</h2>
+<div class="cols">
+<div class="box"><h3>Помилки моделей</h3><p>ШІ може впевнено видати неправдиву відповідь, тому факти потрібно перевіряти.</p></div>
+<div class="box"><h3>Упередженість</h3><p>Модель повторює недоліки даних, на яких її навчали.</p></div>
+<div class="box"><h3>Приватність</h3><p>Не варто передавати чат-ботам особисті дані, паролі та документи.</p></div>
+<div class="box"><h3>Академічна доброчесність</h3><p>ШІ — помічник у навчанні. Здавати чужий згенерований текст як власну роботу нечесно.</p></div>
+</div>
+</div></section>
+
+<section id="lab"><div class="wrap">
+<h2>Лабораторія 2: розділи точки</h2>
+<p style="max-width:44em;color:var(--muted)">Клацайте на полі, щоб ставити точки двох класів. Потім натисніть «Навчити»: простий нейрон сам знайде лінію, що розділяє класи. Якщо точки розкидані як завгодно, модель не зможе їх розділити, і це теж корисний висновок.</p>
+<div class="demo">
+<canvas id="cv" class="cv" width="640" height="340" aria-label="Поле для точок двох класів"></canvas>
+<div class="ctl">
+<button id="cA" aria-pressed="true">Клас A</button><button id="cB" aria-pressed="false">Клас B</button>
+<button id="ex">Приклад</button><button id="tr" class="go">Навчити</button><button id="rs">Скинути</button>
+<span class="stat" id="st" aria-live="polite">Поставте кілька точок кожного класу</span>
+</div></div>
+</div></section>
+
+<section id="nn"><div class="wrap">
+<h2>Лабораторія 1: нейромережа вчиться розпізнавати цифри</h2>
+<p style="max-width:44em;color:var(--muted)">Це справжня маленька нейромережа (35 входів, 14 нейронів, 10 виходів), яка працює прямо у вашому браузері. Спочатку вона нічого не вміє. Натисніть «Навчати» і дивіться, як падає помилка, зростає точність, а стовпчики справа показують, яку цифру вона бачить на малюнку. Малюйте власні цифри клацанням і перетягуванням, а потім додавайте їх у навчальний набір.</p>
+<div class="demo"><div class="l2">
+<div><canvas id="gc" width="200" height="280" aria-label="Поле 5 на 7 клітинок для малювання цифри"></canvas>
+<div class="ctl"><button id="go2" class="go">Навчати</button><button id="cl2">Очистити</button><button id="nm2">Нова модель</button></div>
+<div class="ctl"><label for="dg">Це цифра</label><select id="dg"></select><button id="ad2">Додати приклад</button></div></div>
+<div><b>Що бачить мережа</b><div id="bars" style="margin-top:8px"></div>
+<canvas id="lc" width="320" height="110" aria-label="Графік помилки навчання"></canvas>
+<p class="stat" id="s2" style="margin:8px 0 0" aria-live="polite"></p></div>
+</div></div>
+</div></section>
+
+<section id="quiz"><div class="wrap">
+<h2>Перевір себе: міні-тест</h2>
+<div class="demo" id="qz"></div>
+</div></section>
+
+<section id="gallery"><div class="wrap">
+<h2>Галерея</h2>
+<div class="gal">
+<figure><svg viewBox="0 0 300 210" role="img" aria-label="Ілюстрація: робот"><rect width="300" height="210" fill="none"/><rect class="s" x="95" y="60" width="110" height="90" rx="22"/><circle class="f" cx="128" cy="100" r="11"/><circle class="f" cx="172" cy="100" r="11"/><path class="s" d="M125 128h50"/><path class="s" d="M150 60V35"/><circle class="w" cx="150" cy="30" r="8"/><path class="s" d="M95 95H75M205 95h20"/></svg><figcaption>Помічник: ШІ-системи вже відповідають на запитання й допомагають у навчанні.</figcaption></figure>
+<figure><svg viewBox="0 0 300 210" role="img" aria-label="Ілюстрація: процесор"><rect class="s" x="90" y="55" width="120" height="100" rx="10"/><rect class="w" x="125" y="85" width="50" height="40" rx="6"/><path class="s" d="M110 55V35M150 55V35M190 55V35M110 155v20M150 155v20M190 155v20M90 80H70M90 105H70M90 130H70M210 80h20M210 105h20M210 130h20"/></svg><figcaption>Залізо: для навчання моделей потрібні потужні графічні процесори (GPU).</figcaption></figure>
+<figure><svg viewBox="0 0 300 210" role="img" aria-label="Ілюстрація: комп’ютерний зір"><path class="s" d="M40 105q110-85 220 0q-110 85-220 0z"/><circle class="s" cx="150" cy="105" r="30"/><circle class="w" cx="150" cy="105" r="12"/><path class="s" d="M60 40h30M60 40v30M240 40h-30M240 40v30M60 170h30M60 170v-30M240 170h-30M240 170v-30"/></svg><figcaption>Зір: нейромережі розпізнають обличчя, об’єкти та медичні знімки.</figcaption></figure>
+<figure id="w1"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Alan_Turing_Aged_16.jpg?width=640" alt="Алан Тюрінг у 16 років" onerror="document.getElementById('w1').remove()"><figcaption>Алан Тюрінг у 16 років. Його стаття 1950 року поставила питання, чи можуть машини мислити. <a href="https://commons.wikimedia.org/wiki/File:Alan_Turing_Aged_16.jpg" target="_blank" rel="noopener">Джерело: Wikimedia Commons</a></figcaption></figure>
+<figure id="w2"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Deep_Blue.jpg?width=640" alt="Комп’ютер Deep Blue" onerror="document.getElementById('w2').remove()"><figcaption>Deep Blue: у 1997 році цей суперкомп’ютер переміг чемпіона світу з шахів. <a href="https://commons.wikimedia.org/wiki/File:Deep_Blue.jpg" target="_blank" rel="noopener">Джерело: Wikimedia Commons</a></figcaption></figure>
+<figure id="w3"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Colored_neural_network.svg?width=640" alt="Схема нейронної мережі" onerror="document.getElementById('w3').remove()"><figcaption>Схема нейронної мережі: вхідний, прихований і вихідний шари. <a href="https://commons.wikimedia.org/wiki/File:Colored_neural_network.svg" target="_blank" rel="noopener">Джерело: Wikimedia Commons</a></figcaption></figure>
+<figure id="ph"><img src="images/team.jpg" alt="Фото авторів проєкту" onerror="document.getElementById('ph').remove()"><figcaption>Автори проєкту, 10-Б клас Ліцею №10.</figcaption></figure>
+</div>
+</div></section>
+
+<section id="authors"><div class="wrap">
+<h2>Автори проєкту</h2>
+<div class="authors">
+<div class="box"><div class="ava" aria-hidden="true">ФА</div><h3>Франческа Артемович</h3><p>Учениця 10-Б класу</p></div>
+<div class="box"><div class="ava" aria-hidden="true">МЖ</div><h3>Максим Журило</h3><p>Учень 10-Б класу</p></div>
+</div>
+<h3 style="margin-top:44px;font-size:18px">Висновок</h3>
+<p style="max-width:44em;color:var(--muted)">ШІ змінює сам спосіб, у який ми створюємо програми: від написання правил до навчання моделей. Тому його справді можна вважати окремим видом комп’ютерних технологій, який доповнює, а не замінює класичне програмування.</p>
+<h3 style="margin-top:36px;font-size:18px">Джерела</h3>
+<ol class="src">
+<li>A. Turing. Computing Machinery and Intelligence, 1950.</li>
+<li>Vaswani et al. Attention Is All You Need, 2017.</li>
+<li>S. Russell, P. Norvig. Artificial Intelligence: A Modern Approach.</li>
+<li>Міністерство освіти і науки України: матеріали з інформатики.</li>
+</ol>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Франческа Артемович, Максим Журило, 10-Б клас · Ліцей №10</div></footer>
+
+<script>
+const L=[3,4,2],X=[50,180,310],S=[];
+let lines="",nodes="";
+L.forEach((c,i)=>{const g=[];for(let j=0;j<c;j++)g.push([X[i],150+(j-(c-1)/2)*62]);S.push(g)});
+for(let i=0;i<2;i++)S[i].forEach(a=>S[i+1].forEach(b=>{lines+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`}));
+S[0].forEach((a,k)=>{const b=S[1][k%4];lines+=`<line class="p" style="animation-delay:${k*.5}s" x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`});
+S[1].forEach((a,k)=>{const b=S[2][k%2];lines+=`<line class="p" style="animation-delay:${1.2+k*.4}s" x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`});
+S.flat().forEach(p=>nodes+=`<circle class="n" cx="${p[0]}" cy="${p[1]}" r="14"/>`);
+document.getElementById("l").innerHTML=lines;document.getElementById("nd").innerHTML=nodes;
+
+const T={t1:[["Правила","Програміст сам описує: якщо в листі є слово «виграш» — це спам."],["Обробка","Комп’ютер перевіряє лист за кожним правилом по черзі."],["Результат","Точно, але лише там, де правило передбачене."]],
+t2:[["Дані","Моделі показують тисячі листів, позначених як «спам» і «не спам»."],["Навчання","Модель сама підбирає внутрішні параметри, щоб менше помилятися."],["Результат","Розпізнає і нові схеми спаму, але інколи помиляється."]]};
+const p=document.getElementById("pn");
+function show(id){["t1","t2"].forEach(k=>document.getElementById(k).setAttribute("aria-selected",k===id));
+p.innerHTML='<div class="flow">'+T[id].map(x=>`<div><b>${x[0]}</b>${x[1]}</div>`).join("")+"</div>"}
+["t1","t2"].forEach(k=>document.getElementById(k).onclick=()=>show(k));show("t1");
+
+const r=document.documentElement,b=document.getElementById("theme");
+try{const s=localStorage.getItem("theme");if(s)r.dataset.theme=s}catch(e){}
+b.onclick=()=>{const dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+r.dataset.theme=dark?"light":"dark";try{localStorage.setItem("theme",r.dataset.theme)}catch(e){}};
+/* Лабораторія */
+(()=>{const c=document.getElementById("cv"),x=c.getContext("2d"),W=c.width,H=c.height;
+let pts=[],cls=1,w=[0,0,0],run=0,it=0;
+const $=id=>document.getElementById(id),col=v=>getComputedStyle(r).getPropertyValue(v).trim();
+const nx=p=>[p.x/W*2-1,p.y/H*2-1],f=(u,v)=>w[0]*u+w[1]*v+w[2];
+function draw(){x.clearRect(0,0,W,H);const A=col("--accent"),B=col("--warm");
+if(it){for(let i=0;i<W;i+=20)for(let j=0;j<H;j+=20){x.globalAlpha=.1;x.fillStyle=f(i/W*2-1,j/H*2-1)>0?A:B;x.fillRect(i,j,20,20)}x.globalAlpha=1;
+if(Math.abs(w[1])>1e-4||Math.abs(w[0])>1e-4){x.strokeStyle=col("--ink");x.lineWidth=2;x.beginPath();
+const pts2=[];[-1,1].forEach(u=>{if(Math.abs(w[1])>1e-4)pts2.push([u,-(w[0]*u+w[2])/w[1]])});
+if(pts2.length==2){x.moveTo((pts2[0][0]+1)/2*W,(pts2[0][1]+1)/2*H);x.lineTo((pts2[1][0]+1)/2*W,(pts2[1][1]+1)/2*H)}else{const u=-w[2]/w[0];x.moveTo((u+1)/2*W,0);x.lineTo((u+1)/2*W,H)}x.stroke()}}
+pts.forEach(p=>{x.beginPath();x.fillStyle=p.c==1?A:B;x.arc(p.x,p.y,9,0,7);x.fill();x.strokeStyle=col("--surface");x.lineWidth=2;x.stroke()})}
+function acc(){if(!pts.length)return 0;return pts.filter(p=>{const[u,v]=nx(p);return(f(u,v)>0?1:-1)==p.c}).length/pts.length}
+function step(){let g=[0,0,0];pts.forEach(p=>{const[u,v]=nx(p),z=1/(1+Math.exp(-f(u,v))),e=z-(p.c==1?1:0);g[0]+=e*u;g[1]+=e*v;g[2]+=e});
+for(let k=0;k<3;k++)w[k]-=.6*g[k]/pts.length;it++;draw();const a=acc();$("st").textContent="Крок "+it+" · точність "+Math.round(a*100)+"%";
+if(it<400&&run)requestAnimationFrame(step);else{run=0;$("st").textContent+=a==1?" · класи розділено!":" · лінія не розділяє всі точки"}}
+c.addEventListener("pointerdown",e=>{const b=c.getBoundingClientRect();pts.push({x:(e.clientX-b.left)*W/b.width,y:(e.clientY-b.top)*H/b.height,c:cls});it=0;run=0;$("st").textContent="Точок: "+pts.length;draw()});
+const sel=k=>{cls=k;$("cA").setAttribute("aria-pressed",k==1);$("cB").setAttribute("aria-pressed",k==-1)};
+$("cA").onclick=()=>sel(1);$("cB").onclick=()=>sel(-1);
+$("tr").onclick=()=>{if(pts.filter(p=>p.c==1).length<1||pts.filter(p=>p.c==-1).length<1){$("st").textContent="Потрібні точки обох класів";return}w=[Math.random()-.5,Math.random()-.5,0];it=0;run=1;step()};
+$("rs").onclick=()=>{pts=[];it=0;run=0;w=[0,0,0];$("st").textContent="Поставте кілька точок кожного класу";draw()};
+$("ex").onclick=()=>{pts=[];it=0;run=0;for(let i=0;i<10;i++){pts.push({x:80+Math.random()*200,y:50+Math.random()*240,c:1},{x:360+Math.random()*200,y:50+Math.random()*240,c:-1})}$("st").textContent="Натисніть «Навчити»";draw()};
+matchMedia("(prefers-color-scheme:dark)").addEventListener("change",draw);b.addEventListener("click",()=>setTimeout(draw,0));draw()})();
+
+/* Тест */
+(()=>{const Q=[
+["Чим ШІ принципово відрізняється від класичної програми?",["Працює швидше","Знаходить закономірності в даних","Не потребує комп’ютера"],1,"Правила модель не отримує готовими, а виводить їх із прикладів."],
+["Хто запропонував термін «штучний інтелект»?",["Алан Тюрінг","Джон Маккарті","Гаррі Каспаров"],1,"Термін закріпився на Дартмутській конференції 1956 року."],
+["Яка архітектура лежить в основі сучасних мовних моделей?",["Transformer","Excel","Tetris"],0,"Її описано у статті «Attention Is All You Need» (2017)."],
+["Що робити з відповіддю чат-бота, яка здається неправдоподібною?",["Одразу повірити","Перевірити в надійних джерелах","Скопіювати в реферат"],1,"Моделі іноді впевнено видають вигадані факти."],
+["Для чого потрібні GPU в ШІ?",["Для швидких паралельних обчислень","Для друку","Для зберігання паролів"],0,"Навчання нейромереж складається з величезної кількості однотипних операцій."]];
+const box=document.getElementById("qz");let i=0,sc=0;
+function show(){if(i>=Q.length){box.innerHTML=`<h3>Результат: ${sc} з ${Q.length}</h3><p class="fb">${sc>=4?"Чудово, ви добре розумієте тему.":"Перегляньте розділи вище й спробуйте ще раз."}</p><button class="opt" id="again" style="width:auto">Пройти ще раз</button>`;document.getElementById("again").onclick=()=>{i=0;sc=0;show()};return}
+const q=Q[i];box.innerHTML=`<div class="qn">Питання ${i+1} з ${Q.length}</div><h3>${q[0]}</h3>`+q[1].map((t,k)=>`<button class="opt" data-k="${k}">${t}</button>`).join("")+'<div class="fb" aria-live="polite"></div>';
+box.querySelectorAll(".opt").forEach(bt=>bt.onclick=()=>{const k=+bt.dataset.k;box.querySelectorAll(".opt").forEach(o=>o.disabled=true);
+box.querySelectorAll(".opt")[q[2]].classList.add("ok");if(k!=q[2])bt.classList.add("bad");else sc++;
+box.querySelector(".fb").innerHTML=(k==q[2]?"Правильно. ":"Не зовсім. ")+q[3]+' <br><button class="opt" id="nx" style="width:auto">'+(i==Q.length-1?"Результат":"Далі")+"</button>";
+document.getElementById("nx").onclick=()=>{i++;show()}})}
+show()})();
+/* Нейромережа */
+(()=>{const F="01110/10001/10011/10101/11001/10001/01110 00100/01100/00100/00100/00100/00100/01110 01110/10001/00001/00010/00100/01000/11111 11110/00001/00001/01110/00001/00001/11110 00010/00110/01010/10010/11111/00010/00010 11111/10000/11110/00001/00001/10001/01110 00110/01000/10000/11110/10001/10001/01110 11111/00001/00010/00100/01000/01000/01000 01110/10001/10001/01110/10001/10001/01110 01110/10001/10001/01111/00001/00010/01100".split(" ").map(t=>t.replace(/\//g,"").split("").map(Number));
+const N=35,H=14,$=id=>document.getElementById(id),col=v=>getComputedStyle(r).getPropertyValue(v).trim();
+let W1,b1,W2,b2,loss,acc,ep,run=0,user=[],g=F[3].slice(),pv=null;
+const rnd=()=>(Math.random()-.5)*.6;
+function init(){W1=Array.from({length:H},()=>Array.from({length:N},rnd));b1=Array(H).fill(0);W2=Array.from({length:10},()=>Array.from({length:H},rnd));b2=Array(10).fill(0);loss=[];ep=0;acc=0}
+function fwd(x){const h=W1.map((w,i)=>Math.tanh(w.reduce((s,v,j)=>s+v*x[j],b1[i])));const o=W2.map((w,i)=>w.reduce((s,v,j)=>s+v*h[j],b2[i]));const m=Math.max(...o),e=o.map(v=>Math.exp(v-m)),z=e.reduce((a,b)=>a+b);return{h,p:e.map(v=>v/z)}}
+function step(x,y,lr){const{h,p}=fwd(x),d=p.slice();d[y]-=1;
+const dh=h.map((hv,j)=>(1-hv*hv)*d.reduce((s,dv,k)=>s+dv*W2[k][j],0));
+for(let k=0;k<10;k++){for(let j=0;j<H;j++)W2[k][j]-=lr*d[k]*h[j];b2[k]-=lr*d[k]}
+for(let j=0;j<H;j++){for(let i=0;i<N;i++)W1[j][i]-=lr*dh[j]*x[i];b1[j]-=lr*dh[j]}
+return -Math.log(p[y]+1e-9)}
+const noisy=(a,q)=>a.map(v=>Math.random()<q?1-v:v);
+function sample(){if(user.length&&Math.random()<.25){const u=user[Math.random()*user.length|0];return[noisy(u[0],.03),u[1]]}const y=Math.random()*10|0;return[noisy(F[y],.1),y]}
+const gc=$("gc"),gx=gc.getContext("2d"),lc=$("lc"),lx=lc.getContext("2d"),bars=$("bars");
+bars.innerHTML=Array.from({length:10},(_,i)=>`<div class="br"><span>${i}</span><i><b></b></i><em>0%</em></div>`).join("");
+$("dg").innerHTML=Array.from({length:10},(_,i)=>`<option>${i}</option>`).join("");
+function paint(){const A=col("--accent");gx.clearRect(0,0,200,280);
+for(let i=0;i<N;i++){const cx=i%5*40,cy=(i/5|0)*40;gx.fillStyle=g[i]?A:col("--soft");gx.fillRect(cx+2,cy+2,36,36)}
+const p=fwd(g).p,mx=p.indexOf(Math.max(...p));
+bars.querySelectorAll(".br").forEach((d,i)=>{const b=d.querySelector("b");b.style.width=p[i]*100+"%";b.className=i==mx?"top":"";d.querySelector("em").textContent=Math.round(p[i]*100)+"%"});
+lx.clearRect(0,0,320,110);lx.strokeStyle=col("--warm");lx.lineWidth=2;lx.beginPath();
+const L=loss.slice(-160);L.forEach((v,i)=>{const X=i/Math.max(159,L.length-1)*316+2,Y=106-Math.min(v,2.4)/2.4*100;i?lx.lineTo(X,Y):lx.moveTo(X,Y)});lx.stroke();
+lx.fillStyle=col("--muted");lx.font="12px Onest,sans-serif";lx.fillText("помилка навчання",8,14);
+$("s2").textContent="Крок "+ep+" · точність на шумних цифрах "+Math.round(acc*100)+"% · ваших прикладів: "+user.length}
+function frame(){let L=0;for(let i=0;i<10;i++){const[x,y]=sample();L+=step(x,y,.01)}ep++;loss.push(L/10);
+if(ep%3==0){let c=0;for(let i=0;i<100;i++){const y=i%10,q=fwd(noisy(F[y],.1)).p;if(q.indexOf(Math.max(...q))==y)c++}acc=c/100}
+paint();if(run&&ep<800)setTimeout(frame,35);else{run=0;$("go2").textContent="Навчати"}}
+const cell=e=>{const b=gc.getBoundingClientRect();return Math.min(6,Math.max(0,(e.clientY-b.top)/b.height*7|0))*5+Math.min(4,Math.max(0,(e.clientX-b.left)/b.width*5|0))};
+gc.onpointerdown=e=>{const i=cell(e);pv=1-g[i];g[i]=pv;gc.setPointerCapture(e.pointerId);paint()};
+gc.onpointermove=e=>{if(pv===null)return;g[cell(e)]=pv;paint()};
+gc.onpointerup=()=>{pv=null};
+$("go2").onclick=()=>{if(run){run=0;return}run=1;$("go2").textContent="Пауза";frame()};
+$("nm2").onclick=()=>{run=0;$("go2").textContent="Навчати";init();paint()};
+$("cl2").onclick=()=>{g.fill(0);paint()};
+$("ad2").onclick=()=>{user.push([g.slice(),+$("dg").value]);paint()};
+b.addEventListener("click",()=>setTimeout(paint,0));init();paint()})();
+</script>
+</body>
+</html>
