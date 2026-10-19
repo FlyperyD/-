@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Штучний інтелект — окремий вид комп’ютерних технологій</title>
+<meta name="description" content="Шкільний проєкт учнів 10-Б класу: чим штучний інтелект відрізняється від класичних програм і чому його вважають окремим видом комп’ютерних технологій.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2f8;--surface:#fff;--ink:#101a3a;--muted:#55607e;--line:#d3dbea;--accent:#3340ff;--accent-ink:#fff;--warm:#ff7a59;--soft:#e2e7ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1226;--surface:#141c38;--ink:#eaf0ff;--muted:#a3aed0;--line:#27325a;--accent:#8a94ff;--accent-ink:#0c1226;--warm:#ff9275;--soft:#1d2750}}
+:root[data-theme="dark"]{--bg:#0c1226;--surface:#141c38;--ink:#eaf0ff;--muted:#a3aed0;--line:#27325a;--accent:#8a94ff;--accent-ink:#0c1226;--warm:#ff9275;--soft:#1d2750}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 Onest,system-ui,sans-serif}
+h1,h2,h3{font-family:Unbounded,Onest,sans-serif;line-height:1.15;margin:0 0 .6em}
+a{color:var(--accent)}:focus-visible{outline:3px solid var(--warm);outline-offset:3px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 22px}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:18px;min-height:60px}
+.logo{font:700 15px Unbounded,sans-serif;color:var(--ink);text-decoration:none;margin-right:auto}
+nav{display:flex;gap:4px;flex-wrap:wrap}nav a{color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:8px;font-size:15px}nav a:hover{background:var(--soft);color:var(--ink)}
+#theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;font:inherit}
+.hero{padding:72px 0 56px;display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(30px,5vw,54px);letter-spacing:-.02em}
+.lead{font-size:20px;color:var(--muted);max-width:34em}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:700}
+.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.net{width:100%;height:auto}.net line{stroke:var(--line);stroke-width:2}.net .n{fill:var(--surface);stroke:var(--accent);stroke-width:3}
+.net .p{stroke:var(--warm);stroke-width:3;stroke-dasharray:6 120;animation:flow 3.2s linear infinite}
+@keyframes flow{to{stroke-dashoffset:-126}}
+@media (prefers-reduced-motion:reduce){.net .p{animation:none}html{scroll-behavior:auto}}
+section{padding:60px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(24px,3.4vw,34px)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.box h3{font-size:17px}.box p{margin:0;color:var(--muted)}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{padding:10px 18px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-weight:500;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px}
+.flow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;margin:18px 0 0}
+.flow div{flex:1 1 150px;background:var(--soft);border-radius:10px;padding:14px}
+.flow b{display:block;margin-bottom:4px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:560px}th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Unbounded,sans-serif;font-size:14px}tr:last-child td{border-bottom:0}td:first-child{font-weight:700}
+.tl{list-style:none;margin:0;padding:0 0 0 22px;border-left:3px solid var(--accent)}
+.tl li{position:relative;margin-bottom:22px;max-width:46em}
+.tl li::before{content:"";position:absolute;left:-30px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--warm)}
+.tl strong{font-family:Unbounded,sans-serif;font-size:16px;display:block}
+.quote{font:500 clamp(20px,3vw,28px)/1.4 Unbounded,sans-serif;max-width:30em}
+.authors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.ava{width:56px;height:56px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 20px Unbounded,sans-serif;margin-bottom:14px}
+ol.src{color:var(--muted);padding-left:20px}
+footer{border-top:1px solid var(--line);padding:30px 0;color:var(--muted);font-size:15px}
+@media (max-width:820px){.hero{grid-template-columns:1fr;padding-top:44px}nav{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top">ШІ · 10-Б</a>
+<nav aria-label="Розділи"><a href="#idea">Ідея</a><a href="#diff">Відмінності</a><a href="#history">Історія</a><a href="#kinds">Види</a><a href="#use">Застосування</a><a href="#ethics">Ризики</a><a href="#authors">Автори</a></nav>
+<button id="theme" aria-label="Змінити тему">◐ Тема</button>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<h1>Штучний інтелект — окремий вид комп’ютерних технологій</h1>
+<p class="lead">Звичайна програма виконує інструкції, написані людиною. Система ШІ сама знаходить закономірності в даних. Саме тому її вважають окремою гілкою інформатики.</p>
+<div class="btns"><a class="btn" href="#diff">Чим ШІ відрізняється</a><a class="btn alt" href="#history">Історія розвитку</a></div>
+</div>
+<svg class="net" viewBox="0 0 360 300" role="img" aria-label="Схема нейронної мережі з трьох шарів">
+<g id="l"></g><g id="nd"></g>
+</svg>
+</div>
+
+<section id="idea"><div class="wrap">
+<h2>Головна ідея проєкту</h2>
+<p class="quote">Програму пишуть, а модель ШІ — навчають.</p>
+<p style="max-width:44em;color:var(--muted)">Ми розглядаємо ШІ не як окрему програму, а як окремий підхід до обчислень: замість готових правил — приклади, замість точної інструкції — модель, яка узагальнює побачене. Нижче можна порівняти обидва підходи.</p>
+<div class="demo" style="margin-top:24px">
+<div class="tabs" role="tablist" aria-label="Підхід">
+<button role="tab" aria-selected="true" aria-controls="pn" id="t1">Класична програма</button>
+<button role="tab" aria-selected="false" aria-controls="pn" id="t2">Модель ШІ</button>
+</div>
+<div id="pn" role="tabpanel" aria-live="polite"></div>
+</div>
+</div></section>
+
+<section id="diff"><div class="wrap">
+<h2>Чому ШІ — окремий вид технологій</h2>
+<div class="tw"><table>
+<thead><tr><th>Ознака</th><th>Класична програма</th><th>Система ШІ</th></tr></thead>
+<tbody>
+<tr><td>Джерело логіки</td><td>Правила пише програміст</td><td>Закономірності знаходяться в даних</td></tr>
+<tr><td>Результат</td><td>Завжди однаковий для однакового входу</td><td>Ймовірнісний, може відрізнятися</td></tr>
+<tr><td>Нові ситуації</td><td>Потрібно дописати код</td><td>Узагальнює на схожі випадки</td></tr>
+<tr><td>Удосконалення</td><td>Нова версія програми</td><td>Донавчання на нових даних</td></tr>
+<tr><td>Помилки</td><td>Можна знайти рядок з багом</td><td>Складно пояснити причину</td></tr>
+<tr><td>Ресурси</td><td>Звичайний комп’ютер</td><td>Великі дані та потужні процесори (GPU)</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section id="history"><div class="wrap">
+<h2>Історія розвитку</h2>
+<ol class="tl">
+<li><strong>1950</strong>Алан Тюрінг у статті «Computing Machinery and Intelligence» ставить питання, чи можуть машини мислити.</li>
+<li><strong>1956</strong>На Дартмутській літній конференції закріплюється термін «штучний інтелект» (його запропонував Джон Маккарті).</li>
+<li><strong>1997</strong>Комп’ютер Deep Blue вигравав матч у шахового чемпіона Гаррі Каспарова.</li>
+<li><strong>2012</strong>Згорткова мережа AlexNet різко покращує розпізнавання зображень, починається ера глибокого навчання.</li>
+<li><strong>2016</strong>Програма AlphaGo перемагає Лі Седоля в го.</li>
+<li><strong>2017</strong>З’являється архітектура Transformer, на якій побудовано сучасні мовні моделі.</li>
+<li><strong>2022</strong>ChatGPT робить генеративний ШІ доступним мільйонам людей.</li>
+</ol>
+</div></section>
+
+<section id="kinds"><div class="wrap">
+<h2>Основні напрями ШІ</h2>
+<div class="cols">
+<div class="box"><h3>Машинне навчання</h3><p>Алгоритми, які вчаться на прикладах: прогноз цін, рекомендації, фільтр спаму.</p></div>
+<div class="box"><h3>Нейронні мережі</h3><p>Багатошарові моделі, натхненні будовою мозку. Основа глибокого навчання.</p></div>
+<div class="box"><h3>Комп’ютерний зір</h3><p>Розпізнавання облич, об’єктів, медичних знімків, дорожніх знаків.</p></div>
+<div class="box"><h3>Обробка мови</h3><p>Переклад, голосові помічники, чат-боти, аналіз текстів.</p></div>
+<div class="box"><h3>Генеративний ШІ</h3><p>Створює нові тексти, зображення, музику та код за запитом користувача.</p></div>
+<div class="box"><h3>Робототехніка</h3><p>Автономні машини, які сприймають середовище і ухвалюють рішення.</p></div>
+</div>
+</div></section>
+
+<section id="use"><div class="wrap">
+<h2>Де ШІ працює вже сьогодні</h2>
+<div class="cols">
+<div class="box"><h3>Освіта</h3><p>Персональні вправи, перевірка мови, пояснення складних тем.</p></div>
+<div class="box"><h3>Медицина</h3><p>Допомога лікарям в аналізі знімків та пошуку ліків.</p></div>
+<div class="box"><h3>Транспорт</h3><p>Навігація, прогноз заторів, системи допомоги водієві.</p></div>
+<div class="box"><h3>Творчість</h3><p>Ілюстрації, музика, дизайн, ідеї для текстів.</p></div>
+</div>
+</div></section>
+
+<section id="ethics"><div class="wrap">
+<h2>Ризики та відповідальне використання</h2>
+<div class="cols">
+<div class="box"><h3>Помилки моделей</h3><p>ШІ може впевнено видати неправдиву відповідь, тому факти потрібно перевіряти.</p></div>
+<div class="box"><h3>Упередженість</h3><p>Модель повторює недоліки даних, на яких її навчали.</p></div>
+<div class="box"><h3>Приватність</h3><p>Не варто передавати чат-ботам особисті дані, паролі та документи.</p></div>
+<div class="box"><h3>Академічна доброчесність</h3><p>ШІ — помічник у навчанні. Здавати чужий згенерований текст як власну роботу нечесно.</p></div>
+</div>
+</div></section>
+
+<section id="authors"><div class="wrap">
+<h2>Автори проєкту</h2>
+<div class="authors">
+<div class="box"><div class="ava" aria-hidden="true">ФА</div><h3>Франческа Артемович</h3><p>Учениця 10-Б класу</p></div>
+<div class="box"><div class="ava" aria-hidden="true">МЖ</div><h3>Максим Журило</h3><p>Учень 10-Б класу</p></div>
+</div>
+<h3 style="margin-top:44px;font-size:18px">Висновок</h3>
+<p style="max-width:44em;color:var(--muted)">ШІ змінює сам спосіб, у який ми створюємо програми: від написання правил до навчання моделей. Тому його справді можна вважати окремим видом комп’ютерних технологій, який доповнює, а не замінює класичне програмування.</p>
+<h3 style="margin-top:36px;font-size:18px">Джерела</h3>
+<ol class="src">
+<li>A. Turing. Computing Machinery and Intelligence, 1950.</li>
+<li>Vaswani et al. Attention Is All You Need, 2017.</li>
+<li>S. Russell, P. Norvig. Artificial Intelligence: A Modern Approach.</li>
+<li>Міністерство освіти і науки України: матеріали з інформатики.</li>
+</ol>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Франческа Артемович, Максим Журило, 10-Б клас · [назва школи]</div></footer>
+
+<script>
+const L=[3,4,2],X=[50,180,310],S=[];
+let lines="",nodes="";
+L.forEach((c,i)=>{const g=[];for(let j=0;j<c;j++)g.push([X[i],150+(j-(c-1)/2)*62]);S.push(g)});
+for(let i=0;i<2;i++)S[i].forEach(a=>S[i+1].forEach(b=>{lines+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`}));
+S[0].forEach((a,k)=>{const b=S[1][k%4];lines+=`<line class="p" style="animation-delay:${k*.5}s" x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`});
+S[1].forEach((a,k)=>{const b=S[2][k%2];lines+=`<line class="p" style="animation-delay:${1.2+k*.4}s" x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`});
+S.flat().forEach(p=>nodes+=`<circle class="n" cx="${p[0]}" cy="${p[1]}" r="14"/>`);
+document.getElementById("l").innerHTML=lines;document.getElementById("nd").innerHTML=nodes;
+
+const T={t1:[["Правила","Програміст сам описує: якщо в листі є слово «виграш» — це спам."],["Обробка","Комп’ютер перевіряє лист за кожним правилом по черзі."],["Результат","Точно, але лише там, де правило передбачене."]],
+t2:[["Дані","Моделі показують тисячі листів, позначених як «спам» і «не спам»."],["Навчання","Модель сама підбирає внутрішні параметри, щоб менше помилятися."],["Результат","Розпізнає і нові схеми спаму, але інколи помиляється."]]};
+const p=document.getElementById("pn");
+function show(id){["t1","t2"].forEach(k=>document.getElementById(k).setAttribute("aria-selected",k===id));
+p.innerHTML='<div class="flow">'+T[id].map(x=>`<div><b>${x[0]}</b>${x[1]}</div>`).join("")+"</div>"}
+["t1","t2"].forEach(k=>document.getElementById(k).onclick=()=>show(k));show("t1");
+
+const r=document.documentElement,b=document.getElementById("theme");
+try{const s=localStorage.getItem("theme");if(s)r.dataset.theme=s}catch(e){}
+b.onclick=()=>{const dark=r.dataset.theme?r.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+r.dataset.theme=dark?"light":"dark";try{localStorage.setItem("theme",r.dataset.theme)}catch(e){}};
+</script>
+</body>
+</html>
